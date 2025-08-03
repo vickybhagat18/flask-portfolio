@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<a href="/resume/Vicky_Bhagat_Resume.pdf" target="_blank" class="btn">View Resume</a>
-
+<a href="{{ url_for('static', filename='resume/Vicky_Bhagat_Resume.pdf') }}" target="_blank">Resume</a>
 
 <div class="overlay">
   <h1>Hi, I'm Vicky Bhagat</h1>
