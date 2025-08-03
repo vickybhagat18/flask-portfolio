@@ -147,3 +147,26 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+/* Navbar link color white */
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;   /* ⬅️ Changed from #333 to white */
+  font-weight: bold;
+}
+
+/* About section text color white */
+.about {
+  color: white;   /* ⬅️ Makes text white */
+}
+
+/* Optional: About section heading also white */
+.about h2 {
+  color: white;
+}
+.about {
+  background-color: rgba(0, 0, 0, 0.4); /* translucent black background */
+  color: white;
+  padding: 40px 20px;
+  border-radius: 8px;
+}
