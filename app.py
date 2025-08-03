@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import os
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkey'  # required for flash messages
+app.secret_key = 'supersecretkey'
 
 @app.route('/')
 def home():
@@ -23,14 +23,13 @@ def contact():
             flash("Please fill in all the fields.")
             return redirect(url_for('contact'))
 
-        # Normally you'd send an email or save to DB
-        print(f"📩 New Message:\nFrom: {name} <{email}>\nMessage: {message}\n")
-
+        print(f"📩 Message from {name} ({email}): {message}")
         flash("Message sent successfully!")
         return redirect(url_for('contact'))
 
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Render-compatible
+    port = int(os.environ.get("PORT", 10000))  # Compatible with Render
     app.run(host='0.0.0.0', port=port)
+
