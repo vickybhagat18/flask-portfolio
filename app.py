@@ -1,42 +1,36 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash
+import os
 
 app = Flask(__name__)
+app.secret_key = 'supersecretkey'  # required for flash messages
 
-# ✅ HOME ROUTE
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# ✅ PROJECTS PAGE
 @app.route('/projects')
 def projects():
     return render_template('projects.html')
 
-# ✅ CONTACT FORM PAGE
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        mobile = request.form['mobile']
-        message = request.form['message']
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
 
-        print("📩 Message Received:")
-        print("👤 Name:", name)
-        print("📧 Email:", email)
-        print("📱 Mobile:", mobile)
-        print("💬 Message:", message)
+        if not name or not email or not message:
+            flash("Please fill in all the fields.")
+            return redirect(url_for('contact'))
 
-        return render_template('contact.html', success=True)
+        # Normally you'd send an email or save to DB
+        print(f"📩 New Message:\nFrom: {name} <{email}>\nMessage: {message}\n")
 
-    return render_template('contact.html', success=False)
+        flash("Message sent successfully!")
+        return redirect(url_for('contact'))
 
-# ✅ RESUME DOWNLOAD
-@app.route('/resume')
-def resume():
-    return send_from_directory('resume', 'Vicky_Bhagat_Resume.pdf')
+    return render_template('contact.html')
 
-
-# ✅ MAIN FUNCTION
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # Render-compatible
+    app.run(host='0.0.0.0', port=port)
