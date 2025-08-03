@@ -1,11 +1,36 @@
-{% extends 'base.html' %}
-{% block content %}
-<a href="{{ url_for('static', filename='resume/Vicky_Bhagat_Resume.pdf') }}" target="_blank">Resume</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vicky Bhagat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
 
-<div class="overlay">
-  <h1>Hi, I'm Vicky Bhagat</h1>
-  <p>I build clean and useful web tools using Flask.</p>
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <h1>Vicky Bhagat</h1>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('static', filename='resume/Vicky_Bhagat_Resume.pdf') }}" target="_blank">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
 
-</div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h2>Hi, I'm Vicky Bhagat</h2>
+      <p>I build clean and useful web tools using Flask.</p>
+    </div>
+  </header>
 
-{% endblock %}
+  <!-- (Optional) Projects Preview or About -->
+  <section class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am a passionate developer with experien
