@@ -5,20 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vicky Bhagat</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    nav {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #007bff;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav>
-    <div class="container">
-      <h1>Vicky Bhagat</h1>
-      <ul>
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('projects') }}">Projects</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('static', filename='resume/Vicky_Bhagat_Resume.pdf') }}" target="_blank">Resume</a></li>
-      </ul>
-    </div>
+    <h1>Vicky Bhagat</h1>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('projects') }}">Projects</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('static', filename='resume/Vicky_Bhagat_Resume.pdf') }}" target="_blank">Resume</a></li>
+    </ul>
   </nav>
 
   <!-- Hero Section -->
