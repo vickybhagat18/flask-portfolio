@@ -4,169 +4,85 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* 🔹 General Body Styling with Background Image */
+
+/* General Body Styling */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-
-  background-image: url('/static/images/backimage.jpg'); /* 🔁 Replace with your image name */
+  background-image: url('/static/images/backimage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
+  color: white; /* Default text color white */
 }
 
-.overlay {
-  height: 100vh;
+/* Navbar */
+nav {
+  background-color: #000;
+  padding: 5px 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  color: #fffbf0; /* 🔹 light cream text color */
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-
-.overlay h1 {
-  font-size: 3rem;         /* 🔹 bigger heading */
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: #fff;             /* 🔹 pure white (you can change if needed) */
-}
-
-.overlay p {
-  font-size: 1.5rem;       /* 🔹 slightly larger paragraph */
-  color: #f0f0f0;
-  max-width: 700px;
-}
-
-/* 🔹 Header Navbar */
-header {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px 0;
-  text-align: center;
   position: sticky;
   top: 0;
   z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-header h1 {
-  margin: 0;
+nav h1 {
   font-size: 24px;
+  color: white;
 }
 
-nav a {
-  margin: 0 10px;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-/* 🔹 Main Container */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: auto;
+nav ul li a:hover {
+  color: #00bfff;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 40px;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* About Section */
+.about {
+  margin-top: 50px;
   padding: 20px;
-}
-
-/* 🔹 Project Cards Section */
-.project-section {
-  padding: 60px 20px;
-  background: #f4f4f4;
-}
-
-.project-card {
-  background: white;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.project-card img {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.project-card h2 {
-  margin-top: 15px;
-  font-size: 22px;
-  color: #333;
-}
-
-.project-card p {
-  font-size: 16px;
-  color: #666;
-}
-
-/* 🔹 Contact Form */
-.form {
-  max-width: 500px;
-  margin: auto;
-}
-
-.form input,
-.form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form button {
-  background: #333;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.form button:hover {
-  background: #555;
-}
-
-.success {
-  color: green;
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* 🔹 Footer */
-footer {
-  background: #222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-}
-/* Navbar link color white */
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: white;   /* ⬅️ Changed from #333 to white */
-  font-weight: bold;
-}
-
-/* About section text color white */
-.about {
-  color: white;   /* ⬅️ Makes text white */
-}
-
-/* Optional: About section heading also white */
 .about h2 {
-  color: white;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
-.about {
-  background-color: rgba(0, 0, 0, 0.4); /* translucent black background */
-  color: white;
-  padding: 40px 20px;
-  border-radius: 8px;
+
+.about p {
+  font-size: 1.1rem;
 }
