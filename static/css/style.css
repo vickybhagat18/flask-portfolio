@@ -1,11 +1,11 @@
-/* Remove default margin & padding */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* General Body Styling */
+
 body {
   margin: 0;
   padding: 0;
@@ -15,12 +15,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
-  color: white; /* Default text color white */
+  color: white; 
 }
 
-/* Navbar */
+
 nav {
-  background-color: rgba(0, 0, 0, 0.7); /* dark transparent background */
+  background-color: rgba(0, 0, 0, 0.7); 
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -53,8 +53,6 @@ nav ul li a {
 nav ul li a:hover {
   color: #00bfff;
 }
-
-/* Hero Section */
 .hero {
   margin-top: 40px;
   text-align: center;
@@ -71,14 +69,14 @@ nav ul li a:hover {
   font-size: 1.2rem;
 }
 
-/* About Section */
+
 .about {
   margin-top: 50px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 
-  /* Centering code */
+ 
   display: flex;
   justify-content: center;
   text-align: center;
@@ -203,11 +201,8 @@ nav ul li a:hover::after {
 .project-card:nth-child(2) {
   animation-delay: 0.6s;
 }
-/* add more if needed */
-
-/* Navbar Style */
 nav {
-  background-color: rgba(0, 0, 0, 0.8);  /* Dark transparent background */
+  background-color: rgba(0, 0, 0, 0.8); 
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -221,7 +216,7 @@ nav {
 nav h1 {
   margin: 0;
   font-size: 24px;
-  color: white;  /* Title white */
+  color: white; 
 }
 
 nav ul {
@@ -236,11 +231,11 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: white;  /* ✅ THIS MAKES LINKS WHITE */
+  color: white;  
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #00bfff;  /* Sky blue hover */
+  color: #00bfff;
 }
