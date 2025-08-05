@@ -205,3 +205,42 @@ nav ul li a:hover::after {
 }
 /* add more if needed */
 
+/* Navbar Style */
+nav {
+  background-color: rgba(0, 0, 0, 0.8);  /* Dark transparent background */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 24px;
+  color: white;  /* Title white */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;  /* ✅ THIS MAKES LINKS WHITE */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #00bfff;  /* Sky blue hover */
+}
