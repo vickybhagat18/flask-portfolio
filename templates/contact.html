@@ -1,25 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="contact-section">
-  <div class="form">
-    <h2>Contact Me</h2>
+<div class="contact-container">
+  <h2>Contact Me</h2>
 
-    <!-- ✅ Success or error flash messages -->
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for msg in messages %}
-          <p class="success">✔ {{ msg }}</p>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+  <!-- ✅ Flash messages -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for msg in messages %}
+        <p class="success">✔ {{ msg }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
 
-    <form method="POST" action="/contact">
-      <input name="name" type="text" placeholder="Name" required>
-      <input name="email" type="email" placeholder="Email" required>
-      <input name="mobile" type="tel" placeholder="Mobile" required>
-      <textarea name="message" placeholder="Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-</section>
+  <form method="POST" action="/contact">
+    <input name="name" type="text" placeholder="Name" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="mobile" type="tel" placeholder="Mobile" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</div>
 {% endblock %}
