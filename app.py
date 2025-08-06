@@ -17,13 +17,20 @@ def contact():
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
+        mobile = request.form.get('mobile')
         message = request.form.get('message')
 
-        if not name or not email or not message:
-            flash("Please fill in all the fields.")
+        if not name or not email or not message or not mobile:
             return render_template('contact.html', success=False)
 
-        print(f"📩 Message from {name} ({email}): {message}")
+        
+        print("\n------ New Contact Form Submission ------")
+        print(f"Name    : {name}")
+        print(f"Email   : {email}")
+        print(f"Mobile  : {mobile}")
+        print(f"Message : {message}")
+        print("----------------------------------------\n")
+
         return render_template('contact.html', success=True)
 
     return render_template('contact.html', success=False)
