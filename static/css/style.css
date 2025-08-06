@@ -57,9 +57,13 @@ nav ul li a:hover {
 /* Hero section */
 .hero {
   background: url('../images/backimage.jpg') no-repeat center center/cover;
+  min-height: 100vh;
   padding: 100px 20px;
   text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero h2 {
