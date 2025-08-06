@@ -239,3 +239,11 @@ nav ul li a {
 nav ul li a:hover {
   color: #00bfff;
 }
+.success {
+  color: #00ff00;
+  font-weight: bold;
+  margin-bottom: 15px;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 5px;
+}

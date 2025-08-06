@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import os
+import requests
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
+
+# ✅ Google Apps Script URL
+GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwv50Dww2yY2hZrUv1svnEKXnODXhoT4YOluDrfzEhDKaQwQM4HAmVp9xanhuaDF2c5/exec"
 
 @app.route('/')
 def home():
@@ -20,22 +24,32 @@ def contact():
         mobile = request.form.get('mobile')
         message = request.form.get('message')
 
-        if not name or not email or not message or not mobile:
-            return render_template('contact.html', success=False)
+        if not name or not email or not mobile or not message:
+            flash("⚠️ Please fill in all the fields.")
+            return redirect(url_for('contact'))
 
-        
-        print("\n------ New Contact Form Submission ------")
-        print(f"Name    : {name}")
-        print(f"Email   : {email}")
-        print(f"Mobile  : {mobile}")
-        print(f"Message : {message}")
-        print("----------------------------------------\n")
+        # ✅ Send data to Google Sheet
+        try:
+            data = {
+                'name': name,
+                'email': email,
+                'mobile': mobile,
+                'message': message
+            }
+            response = requests.post(GOOGLE_SHEET_URL, json=data)
 
-        return render_template('contact.html', success=True)
+            if response.status_code == 200:
+                flash("✔️ Message sent successfully!")
+            else:
+                flash("⚠️ Failed to send message to Google Sheet.")
+        except Exception as e:
+            print("Error sending to Google Sheet:", e)
+            flash("⚠️ Something went wrong. Please try again later.")
 
-    return render_template('contact.html', success=False)
+        return redirect(url_for('contact'))
+
+    return render_template('contact.html')
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 10000))  
+    port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
-
