@@ -21,13 +21,12 @@ def contact():
 
         if not name or not email or not message:
             flash("Please fill in all the fields.")
-            return redirect(url_for('contact'))
+            return render_template('contact.html', success=False)
 
         print(f"📩 Message from {name} ({email}): {message}")
-        flash("Message sent successfully!")
-        return redirect(url_for('contact'))
+        return render_template('contact.html', success=True)
 
-    return render_template('contact.html')
+    return render_template('contact.html', success=False)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))  
